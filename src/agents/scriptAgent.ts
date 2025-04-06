@@ -27,10 +27,7 @@ async function scriptAgent(scenes: Scene[]) {
         console.log(response.choices);
         const narration = response.choices[0].message?.content?.trim() || "";
 
-        if (
-            !narration ||
-            narration.toLowerCase().includes("please describe the scene")
-        ) {
+        if ( !narration || narration.toLowerCase().includes("please describe the scene")) {
             throw new Error(`Invalid narration for scene ${scene.id}`);
         }
         const content = response.choices[0].message?.content || "";

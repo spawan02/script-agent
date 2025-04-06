@@ -14,7 +14,7 @@ async function uploadToSupabase(
         .from("audio")
         .upload(filePath, fileBuffer, {
             cacheControl: "3600",
-            upsert: true,
+            upsert: false,
             contentType: "audio/mp3",
         });
 
